@@ -36,7 +36,7 @@ GREEN_PIN = 22
 BLUE_PIN  = 24
 
 # Number of color changes per step (more is faster, but with less effect)
-STEPS = 20
+STEPS = 3
 
 ###### END ######
 
@@ -104,6 +104,14 @@ def checkKey():
 	
 	while True:
 		c = getCh()
+		
+		if c == 'u':
+		        STEPS += 1
+		        print "Current Step: %d" % STEPS
+		        
+		if c == 'd':
+		        STEPS -= 1
+		        print "Current Step: %d" % STEPS
 		
 		if c == '+':
 			bright = bright + 0.05
