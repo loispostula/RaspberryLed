@@ -36,7 +36,7 @@ GREEN_PIN = 22
 BLUE_PIN  = 24
 
 # Number of color changes per step (more is faster, but with less effect)
-STEPS = 3
+
 
 ###### END ######
 
@@ -54,6 +54,7 @@ from thread import start_new_thread
 r = 255
 g = 0
 b = 0
+steps = 3
 
 factor = 1.0 / 255.0
 bright = 1.0
@@ -106,12 +107,12 @@ def checkKey():
 		c = getCh()
 		
 		if c == 'u':
-		        STEPS += 1
-		        print "Current Step: %d" % STEPS
+		        steps += 1
+		        print "Current Step: %d" % steps
 		        
 		if c == 'd':
-		        STEPS -= 1
-		        print "Current Step: %d" % STEPS
+		        steps -= 1
+		        print "Current Step: %d" % steps
 		
 		if c == '+':
 			bright = bright + 0.05
@@ -158,27 +159,27 @@ setLights(2, realfactor * float(b))
 while abort == False:
 	if state:
 		if r == 255 and b == 0 and g < 255:
-			g = updateColor(g, STEPS)
+			g = updateColor(g, steps)
 			setLights(1, realfactor * float(g))
 		
 		elif g == 255 and b == 0 and r > 0:
-			r = updateColor(r, -STEPS)
+			r = updateColor(r, -steps)
 			setLights(0, realfactor * float(r))
 		
 		elif r == 0 and g == 255 and b < 255:
-			b = updateColor(b, STEPS)
+			b = updateColor(b, steps)
 			setLights(2, realfactor * float(b))
 		
 		elif r == 0 and b == 255 and g > 0:
-			g = updateColor(g, -STEPS)
+			g = updateColor(g, -steps)
 			setLights(1, realfactor * float(g))
 		
 		elif g == 0 and b == 255 and r < 255:
-			r = updateColor(r, STEPS)
+			r = updateColor(r, steps)
 			setLights(0, realfactor * float(r))
 		
 		elif r == 255 and g == 0 and b > 0:
-			b = updateColor(b, -STEPS)
+			b = updateColor(b, -steps)
 			setLights(2, realfactor * float(b))
 	
 print "Aborting..."
