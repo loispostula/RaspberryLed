@@ -36,7 +36,7 @@ GREEN_PIN = 22
 BLUE_PIN  = 24
 
 # Number of color changes per step (more is faster, but with less effect)
-STEPS = 3
+STEPS = 20
 
 ###### END ######
 
