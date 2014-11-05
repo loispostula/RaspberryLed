@@ -102,6 +102,7 @@ def checkKey():
 	global bright
 	global state
 	global abort
+	global steps
 	
 	while True:
 		c = getCh()
@@ -145,7 +146,7 @@ def checkKey():
 
 start_new_thread(checkKey, ())
 
-
+print "u / d = Increase /Decrease steps"
 print "+ / - = Increase / Decrease brightness"
 print "p / r = Pause / Resume"
 print "c = Abort Program"
